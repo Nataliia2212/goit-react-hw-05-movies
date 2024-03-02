@@ -1,26 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { fetchFilmCast } from 'helpers/api';
+import { useHttp } from 'hooks/useHTTP';
 
 const Cast = () => {
   const { movieId } = useParams();
 
-  const [cast, setCast] = useState(null);
-  // const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        // setError(null);
-        const cast = await fetchFilmCast(movieId);
-        setCast(cast);
-      } catch (error) {
-      } finally {
-      }
-    };
-    getData();
-  }, [movieId]);
+  const [cast] = useHttp(fetchFilmCast, movieId);
 
   if (!cast) {
     return <h1>Loading...</h1>;

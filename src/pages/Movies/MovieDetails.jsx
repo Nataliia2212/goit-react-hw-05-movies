@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   useParams,
   NavLink,
@@ -8,29 +8,14 @@ import {
 } from 'react-router-dom';
 import { useRef } from 'react';
 import { fetchFilmById } from 'helpers/api';
+import { useHttp } from 'hooks/useHTTP';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-
   const location = useLocation();
-
   const goBackRef = useRef(location.state?.from || '/');
 
-  const [film, setFilm] = useState(null);
-  // const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        // setError(null);
-        const film = await fetchFilmById(movieId);
-        setFilm(film);
-      } catch (error) {
-      } finally {
-      }
-    };
-    getData();
-  }, [movieId]);
+  const [film] = useHttp(fetchFilmById, movieId);
 
   if (!film) {
     return <h1>Loading...</h1>;
