@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import { fetchFilmReviews } from 'helpers/api';
 import ReviewsComponent from 'components/ReviewsComponent';
+
+import { fetchFilmReviews } from 'helpers/api';
 import { useHttp } from 'hooks/useHTTP';
 
 const Reviews = () => {

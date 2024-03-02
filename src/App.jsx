@@ -4,8 +4,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Movies from './pages/Movies/Movies';
 import MovieDetails from './pages/Movies/MovieDetails';
-import Cast from './pages/Movies/Cast';
 import Reviews from './pages/Movies/Reviews';
+import Cast from './pages/Movies/Cast';
 import Layout from 'components/Layout';
 
 export const App = () => {

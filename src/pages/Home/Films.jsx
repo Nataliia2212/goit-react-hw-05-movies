@@ -1,9 +1,9 @@
 import React from 'react';
 
+import FilmsList from 'components/FilmsList';
+
 import { fetchFilms } from '../../helpers/api';
 import { useHttp } from 'hooks/useHTTP';
-
-import FilmsList from 'components/FilmsList';
 
 const Films = () => {
   const [films] = useHttp(fetchFilms);

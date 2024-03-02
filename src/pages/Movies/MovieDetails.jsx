@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   useParams,
   NavLink,
@@ -6,7 +6,7 @@ import {
   Link,
   useLocation,
 } from 'react-router-dom';
-import { useRef } from 'react';
+
 import { fetchFilmById } from 'helpers/api';
 import { useHttp } from 'hooks/useHTTP';
 
