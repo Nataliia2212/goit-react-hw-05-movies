@@ -1,11 +1,11 @@
 import React from 'react';
-import { fetchFilms } from '../../helpers/api';
+import Films from './Films';
 
 const Home = () => {
-  fetchFilms();
   return (
     <div>
       <h1>Home</h1>
+      <Films />
     </div>
   );
 };
