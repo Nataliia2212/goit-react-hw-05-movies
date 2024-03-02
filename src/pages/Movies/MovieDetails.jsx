@@ -5,7 +5,6 @@ import {
   Outlet,
   Link,
   useLocation,
-  useNavigate,
 } from 'react-router-dom';
 import { useRef } from 'react';
 import { fetchFilmById } from 'helpers/api';
@@ -18,12 +17,12 @@ const MovieDetails = () => {
   const goBackRef = useRef(location.state?.from || '/');
 
   const [film, setFilm] = useState(null);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        setError(null);
+        // setError(null);
         const film = await fetchFilmById(movieId);
         setFilm(film);
       } catch (error) {

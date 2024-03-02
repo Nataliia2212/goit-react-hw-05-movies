@@ -1,22 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import {
-  Link,
-  useLocation,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
-import Films from 'pages/Home/Films';
-import FilmsList from 'components/FilmsList';
+// import Films from 'pages/Home/Films';
+// import FilmsList from 'components/FilmsList';
 
 import { fetchFilmQuery } from 'helpers/api';
 
 const Movies = () => {
   const [queryStr, setQueryStr] = useState('');
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [films, setFilms] = useState(null);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query1 = searchParams.get('query') || '';
@@ -25,7 +20,7 @@ const Movies = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        setError(null);
+        // setError(null);
         const films = await fetchFilmQuery(query1);
         setFilms(films);
       } catch (error) {
@@ -41,7 +36,7 @@ const Movies = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setQuery(queryStr);
+    // setQuery(queryStr);
     setSearchParams(queryStr ? { query: queryStr } : {});
   };
 

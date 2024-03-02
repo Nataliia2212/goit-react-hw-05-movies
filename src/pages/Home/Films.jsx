@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useRef } from 'react';
+// import { Link, useLocation } from 'react-router-dom';
+// import { useRef } from 'react';
 import { fetchFilms } from '../../helpers/api';
 import FilmsList from 'components/FilmsList';
 
 const Films = () => {
   const [films, setFilms] = useState(null);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   // const location = useLocation();
   // const goBackRef = useRef(location.state?.from || '/');
@@ -15,7 +15,7 @@ const Films = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        setError(null);
+        // setError(null);
         const films = await fetchFilms();
 
         setFilms(films);
