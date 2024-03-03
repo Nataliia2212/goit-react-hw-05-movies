@@ -35,7 +35,7 @@ const MovieDetails = () => {
         width="400"
       />
       <p>User score: {film.vote_average}</p>
-      <p>Data relase: {film.release_date} </p>
+      <p>Data release: {film.release_date} </p>
       <p>Genres: {film.genres.map(genre => `${genre.name} `)}</p>
       <p>Overview</p>
       <p>{film.overview}</p>

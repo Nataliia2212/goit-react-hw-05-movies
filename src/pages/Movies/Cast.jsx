@@ -21,7 +21,6 @@ const Cast = () => {
             alt=" {actor.name}"
             width="75"
           />
-
           {actor.name}
         </li>
       ))}
