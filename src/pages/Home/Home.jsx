@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Films from './Films';
+import Films from '../Movies/Films';
 
 const Home = () => {
   return (

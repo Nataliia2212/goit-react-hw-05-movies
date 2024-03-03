@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+
+import Form from './Form';
 
 import { fetchFilmQuery } from 'helpers/api';
 import { useHttp } from 'hooks/useHTTP';
 
 const Movies = () => {
-  const [queryStr, setQueryStr] = useState('');
-
   const [searchParams, setSearchParams] = useSearchParams();
   const query1 = searchParams.get('query') || '';
 
   const [films] = useHttp(fetchFilmQuery, query1);
 
-  const handleChangeQuery = e => {
-    setQueryStr(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
+  const submit = queryStr => {
     setSearchParams(queryStr ? { query: queryStr } : {});
   };
 
@@ -29,15 +24,7 @@ const Movies = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={queryStr}
-          name="query"
-          type="text"
-          onChange={handleChangeQuery}
-        />
-        <button>Search</button>
-      </form>
+      <Form onSubmit={submit} />
       <ul>
         {films?.map(film => (
           <li key={film.id}>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import {
   useParams,
   NavLink,
@@ -12,7 +12,9 @@ import { useHttp } from 'hooks/useHTTP';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
+
   const location = useLocation();
+
   const goBackRef = useRef(location.state?.from || '/');
 
   const [film] = useHttp(fetchFilmById, movieId);
@@ -47,7 +49,9 @@ const MovieDetails = () => {
             </li>
           </ul>
         </nav>
-        <Outlet />
+        <Suspense fallback={<h1>Load page....</h1>}>
+          <Outlet />
+        </Suspense>
       </section>
     </div>
   );
