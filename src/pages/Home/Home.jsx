@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Films from '../Movies/Films';
+import Films from '../Movies/Films/Films';
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Top of films</h1>
       <Films />
     </div>
   );

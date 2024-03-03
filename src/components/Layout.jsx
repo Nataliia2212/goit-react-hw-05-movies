@@ -3,15 +3,19 @@ import { Outlet } from 'react-router-dom';
 
 import Nav from './Nav';
 
+import s from './Nav.module.css';
+
 const Layout = () => {
   return (
     <div>
-      <header>
+      <header className={s.wrapper}>
         <Nav />
       </header>
-      <Suspense fallback={<h1>Load page....</h1>}>
-        <Outlet />
-      </Suspense>
+      <div className={s.outletWrapper}>
+        <Suspense fallback={<h1>Load page....</h1>}>
+          <Outlet />
+        </Suspense>
+      </div>
     </div>
   );
 };
